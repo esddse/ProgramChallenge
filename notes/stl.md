@@ -42,6 +42,9 @@
 * erase: 从容器中删除一个或几个元素
 	* a.erase(it_first, it_end): 删除[it_first, it_end)中的元素
 	* a.erase(it): 删除it所在位置的元素
+	* vec.erase(pos): vector可以删除特定位置
+	* set.erase(val): set可删除特定值
+	* map.erase(key): map可删除特定键
 * clear: 删除元素中所有元素
 
 #### 顺序容器共有操作
@@ -99,9 +102,26 @@ mp.insert(make_pair(key, value));
 
 ## 算法
 
-#### find
+#### 统计类算法
+
+用于依次处理容器中的每个元素，处理的结果一般是某个标量
+
+```
+size_t count(InIt first, InIt last, const T& val);  //统计[first, last)中等于val的元素个数
+size_t count_if(InIt first, InIt last, Pred pr); // 计算[first, last)中符合pr(e)==true的元素e的个数
+FwdIt min_element(FwdIt first, FwdIt last); //返回[first,last)中最小元素的迭代器，以小于号作为比较器
+FwdIt max_element(FwdIt first, FwdIt last); //返回[first,last)中最大元素的迭代器,以小于号作比较器 
+T accumulate(InIt first, InIt last, T val); //对[first,last)区间元素执行val = val + *I,返回val
+T accumulate(InIt first, InIt last, T val, Pred pr); //对[first, last)区间内元素执行 val = pr(val, *I)，返回val
+```
+
+#### 查找类算法
+
+查找容器中是否存在符合条件的元素，返回这些元素在容器中的存储位置（迭代器表示）
 
 ```
 iter find(iter first, iter end, const T& val); // 查找[first,end)之间值为val的元素，找到返回该迭代器，找不到返回end
+bool binary_search(FwdIt first, FwdIt last, const T& val); 
+bool binary_search(FwdIt first, FwdIt last, const T& val, Pred pr); 
 
 ```
