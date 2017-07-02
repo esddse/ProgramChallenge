@@ -10,7 +10,7 @@
 * 关联容器： set， multiset， map， multimap
 * 容器适配器： stack， queue， priority_queue
 
-顺序容器和关联容器合称**第一类容器
+顺序容器和关联容器合称**第一类容器**
 
 #### 容器迭代器类别
 
